@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Jewelry - Timeless Elegance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #d4af37;
+            font-style: italic;
+        }
+        
+        nav {
+            background: #2d2d2d;
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            display: inline-block;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        
+        nav a:hover {
+            color: #d4af37;
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23d4af37" width="1200" height="600"/><path fill="%23ffd700" opacity="0.3" d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #d4af37;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn:hover {
+            background: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #ffd700);
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #d4af37;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .features {
+            background: #fff;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .feature-item {
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .feature-item:hover {
+            background: #f9f9f9;
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+        
+        .feature-item h3 {
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            text-align: center;
+        }
+        
+        .contact .section-title {
+            color: #fff;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-item span {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #d4af37;
+        }
+        
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        footer p {
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>✨ LUXE JEWELRY ✨</h1>
+        <p>Timeless Elegance, Crafted to Perfection</p>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h2>Discover Your Sparkle</h2>
+            <p>Exquisite jewelry for life's precious moments</p>
+            <a href="#collections" class="btn">Explore Collection</a>
+        </div>
+    </div>
+    
+    <section id="collections">
+        <div class="container">
+            <h2 class="section-title">Featured Collections</h2>
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-image">💍</div>
+                    <div class="product-info">
+                        <h3>Diamond Rings</h3>
+                        <p>Stunning diamond rings that symbolize eternal love and commitment</p>
+                        <div class="price">$2,499</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">📿</div>
+                    <div class="product-info">
+                        <h3>Pearl Necklaces</h3>
+                        <p>Elegant pearl necklaces for the sophisticated woman</p>
+                        <div class="price">$899</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">👂</div>
+                    <div class="product-info">
+                        <h3>Gold Earrings</h3>
+                        <p>Handcrafted gold earrings that add grace to any occasion</p>
+                        <div class="price">$1,299</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">⌚</div>
+                    <div class="product-info">
+                        <h3>Luxury Bracelets</h3>
+                        <p>Designer bracelets featuring precious stones and metals</p>
+                        <div class="price">$1,799</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">💎</div>
+                    <div class="product-info">
+                        <h3>Gemstone Pendants</h3>
+                        <p>Rare gemstone pendants with unique designs</p>
+                        <div class="price">$1,499</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">👑</div>
+                    <div class="product-info">
+                        <h3>Bridal Collection</h3>
+                        <p>Exclusive bridal jewelry sets for your special day</p>
+                        <div class="price">$3,999</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose Luxe Jewelry</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✨</div>
+                    <h3>Premium Quality</h3>
+                    <p>Each piece is crafted with the finest materials and attention to detail</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Unique Designs</h3>
+                    <p>Exclusive designs created by world-renowned jewelry artisans</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Lifetime Warranty</h3>
+                    <p>All our jewelry comes with a comprehensive lifetime warranty</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Free Shipping</h3>
+                    <p>Complimentary insured shipping on all orders worldwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Visit our showroom or contact us for personalized assistance</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📍</span>
+                    <h3>Location</h3>
+                    <p>123 Luxury Avenue<br>New York, NY 10001</p>
+                </div>
+                
+                <div class="contact-item">
+                    <span>📞</span>
+                    <h3>Phone</h3>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <h3>Email</h3>
+                    <p>info@luxejewelry.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Luxe Jewelry. All rights reserved. | Crafted with ❤️ for elegance</p>
+        </div>
+    </footer>
+</body>
+</html>
